@@ -1,0 +1,57 @@
+manifestVersion: 1
+id: mendell-bookorbit
+name: BookOrbit
+tagline: Deine Bibliothek für E-Books, Comics und Hörbücher
+category: media
+version: "3.6.0"
+port: 8909
+description: >-
+  BookOrbit verwaltet deine digitale Bibliothek mit Web-Reader, Metadaten,
+  Lesefortschritt, OPDS, Kobo- und KOReader-Anbindung sowie mehreren Benutzern.
+
+
+  Ersteinrichtung: Verwende das von Umbrel angezeigte App-Passwort als Setup-Token.
+  Erstelle anschließend dein eigenes Administratorkonto mit einem eigenen Passwort.
+
+
+  Lade Bücher im Web-Interface hoch oder wähle unter Einstellungen → Ordner einen
+  vorhandenen Bücherordner. Füge in BookOrbit /books als Bibliothek hinzu.
+
+
+  Für externe Geräte, Kobo, E-Mail-Links und OIDC muss APP_URL der tatsächlich
+  verwendeten Serveradresse entsprechen. Sie kann unter Einstellungen → Umgebung
+  angepasst werden. Ein vorhandener Big-Bear-Datenbestand wird nicht automatisch übernommen.
+developer: BookOrbit
+website: https://bookorbit.app
+repo: https://github.com/bookorbit/bookorbit
+support: https://github.com/m3ndell/umbrel-bookorbit/issues
+submitter: m3ndell
+submission: https://github.com/m3ndell/umbrel-bookorbit
+icon: https://raw.githubusercontent.com/bookorbit/bookorbit/v3.6.0/docs/images/bookorbit-icon.png
+gallery:
+  - https://raw.githubusercontent.com/bookorbit/bookorbit/v3.6.0/docs/images/dashboard-overview.png
+releaseNotes: >-
+  BookOrbit 3.6.0 mit verbesserter Comic- und Manga-Verwaltung, eigener
+  Metadaten-Provider-Anbindung und erweiterter Lesehistorie.
+  Vollständige Änderungen: https://github.com/bookorbit/bookorbit/releases/tag/v3.6.0
+  Die optionalen separaten TTS- und Read-Aloud-Worker sind nicht enthalten.
+dependencies: []
+storage:
+  dataRoot: data
+folderAccess:
+  - id: books
+    name: Bücher
+    note: Dein Bücherordner erscheint in BookOrbit als /books. BookOrbit benötigt Schreibrechte für UID/GID 1000.
+    mounts:
+      - service: app
+        targetPath: /books
+environment:
+  - name: APP_URL
+    services: [app]
+    note: Vollständige erreichbare Serveradresse, z. B. https://books.example.com. Standard ist http://umbrel.local:8909.
+  - name: TZ
+    services: [app]
+    note: Zeitzone, z. B. Europe/Berlin. Standard ist UTC.
+path: ""
+defaultUsername: ""
+deterministicPassword: true
