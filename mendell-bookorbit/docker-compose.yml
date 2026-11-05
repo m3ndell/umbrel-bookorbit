@@ -12,10 +12,11 @@ services:
     image: busybox:1.38.0@sha256:a46257e06c82ad85242d0d38077d0a52d9896389ca60a1a59d3463db586e5fa4
     user: "0:0"
     restart: "no"
-    # Only the package's own library root, never recursively an existing NAS library.
-    command: ["chown", "1000:1000", "/books"]
+    # Only the package's own library roots, never recursively an existing NAS library.
+    command: ["chown", "1000:1000", "/books", "/audiobooks"]
     volumes:
       - ${APP_DATA_DIR}/data/books:/books
+      - ${APP_DATA_DIR}/data/audiobooks:/audiobooks
 
   app:
     image: ghcr.io/bookorbit/bookorbit:3.6.0@sha256:bbb5da52e96dbbff1dd36f55454f9845e6cde264b4b3428a3ea783124a4ca62e
@@ -40,11 +41,13 @@ services:
       BOOK_REQUEST_ENCRYPTION_KEY: ${APP_MENDELL_BOOKORBIT_REQUEST_KEY}
       SETUP_BOOTSTRAP_TOKEN: ${APP_PASSWORD}
       APP_URL: http://${DEVICE_DOMAIN_NAME}:8909
-      LIBRARY_BROWSE_ROOT: /books
+      # Both library mounts must be reachable in the folder picker.
+      LIBRARY_BROWSE_ROOT: /
       NODE_MAX_OLD_SPACE_SIZE: auto
     volumes:
       - ${APP_DATA_DIR}/data/app:/data
       - ${APP_DATA_DIR}/data/books:/books
+      - ${APP_DATA_DIR}/data/audiobooks:/audiobooks
     read_only: true
     tmpfs: [/tmp]
     cap_drop: [ALL]

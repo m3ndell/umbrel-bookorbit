@@ -3,7 +3,7 @@ id: mendell-bookorbit
 name: BookOrbit
 tagline: Deine Bibliothek für E-Books, Comics und Hörbücher
 category: media
-version: "3.6.0"
+version: "3.6.0-1"
 port: 8909
 description: >-
   BookOrbit verwaltet deine digitale Bibliothek mit Web-Reader, Metadaten,
@@ -15,7 +15,8 @@ description: >-
 
 
   Lade Bücher im Web-Interface hoch oder wähle unter Einstellungen → Ordner einen
-  vorhandenen Bücherordner. Füge in BookOrbit /books als Bibliothek hinzu.
+  vorhandenen Bücher- oder Hörbücherordner. Füge in BookOrbit /books für Bücher
+  und /audiobooks für Hörbücher als Bibliothek hinzu.
 
 
   Für externe Geräte, Kobo, E-Mail-Links und OIDC muss APP_URL der tatsächlich
@@ -31,6 +32,11 @@ icon: https://raw.githubusercontent.com/bookorbit/bookorbit/v3.6.0/docs/images/b
 gallery:
   - https://raw.githubusercontent.com/bookorbit/bookorbit/v3.6.0/docs/images/dashboard-overview.png
 releaseNotes: >-
+  Paketrevision 3.6.0-1 ergänzt /audiobooks als dauerhaft gespeicherten
+  Hörbücherordner und eine eigene Ordnerauswahl in Umbrel. Der BookOrbit-
+  Ordnerdialog kann jetzt /books und /audiobooks auswählen.
+
+
   BookOrbit 3.6.0 mit verbesserter Comic- und Manga-Verwaltung, eigener
   Metadaten-Provider-Anbindung und erweiterter Lesehistorie.
   Vollständige Änderungen: https://github.com/bookorbit/bookorbit/releases/tag/v3.6.0
@@ -45,6 +51,12 @@ folderAccess:
     mounts:
       - service: app
         targetPath: /books
+  - id: audiobooks
+    name: Hörbücher
+    note: Dein Hörbücherordner erscheint in BookOrbit als /audiobooks. BookOrbit benötigt Schreibrechte für UID/GID 1000.
+    mounts:
+      - service: app
+        targetPath: /audiobooks
 environment:
   - name: APP_URL
     services: [app]

@@ -2,6 +2,8 @@
 
 Ein unabhängiger Community App Store von **m3ndell**, der ausschließlich **BookOrbit 3.6.0** enthält. Kein offizieller Store von Umbrel, Big Bear oder BookOrbit.
 
+Paketrevision **3.6.0-1** ergänzt einen separaten Hörbücher-Mount. BookOrbit selbst bleibt bei **3.6.0**. Der Suffix `-1` ist eine Umbrel-Paketrevision, kein BookOrbit-Vorabrelease; für die Prüfung neuer Upstream-Versionen zählt die Version des BookOrbit-Container-Images.
+
 ## Installation
 
 1. In Umbrel den **App Store** öffnen und im Menü **Community App Stores** wählen (die Bezeichnung hängt von der umbrelOS-Version ab).
@@ -13,7 +15,7 @@ Ein unabhängiger Community App Store von **m3ndell**, der ausschließlich **Boo
 
 3. Im Store **Mendell BookOrbit** die App **BookOrbit** installieren.
 4. BookOrbit öffnen. Das von Umbrel angezeigte App-Passwort im Feld **Setup Token** eingeben und einen eigenen Administrator mit eigenem Passwort anlegen.
-5. Bücher hochladen oder unter den Umbrel-App-Einstellungen einen vorhandenen Bücherordner auswählen; in BookOrbit **`/books`** als Bibliothek hinzufügen. Die Ordnerauswahl und Umgebungsvariablen im UI benötigen eine umbrelOS-Version, die diese Funktionen unterstützt. Der Standardordner funktioniert unabhängig davon.
+5. Bücher hochladen oder unter den Umbrel-App-Einstellungen einen vorhandenen Bücherordner auswählen; in BookOrbit **`/books`** als Bibliothek hinzufügen. Für Hörbücher gibt es eine eigene Ordnerauswahl **Hörbücher** mit dem Containerpfad **`/audiobooks`**. Die Ordnerauswahl und Umgebungsvariablen im UI benötigen eine umbrelOS-Version, die diese Funktionen unterstützt. Der Standardordner funktioniert unabhängig davon.
 
 Standardadresse: `http://umbrel.local:8909` beziehungsweise die in Umbrel konfigurierte Geräteadresse mit Port `8909`.
 
@@ -25,9 +27,12 @@ Die App-ID ist `mendell-bookorbit`, der Store-Präfix `mendell`. Unter `<Umbrel-
 | --- | --- |
 | `app/` | BookOrbit-Anwendungsdaten, Cover und interne Dateien |
 | `books/` | Standard-Bibliothek, im Container `/books` |
+| `audiobooks/` | Standard-Hörbücherordner, im Container `/audiobooks` |
 | `postgres/` | PostgreSQL-Datenbank einschließlich pgvector |
 
-Ein über Umbrel ausgewählter externer Bücherordner ersetzt den Standard-Mount der App. Er muss für UID/GID `1000:1000` beschreibbar sein; das Paket ändert seine Besitzrechte nicht automatisch. BookOrbit kann Dateien in diesem Ordner bearbeiten, wenn entsprechende Funktionen benutzt werden.
+Über **Einstellungen → Ordner** kannst du Bücher und Hörbücher getrennt auf vorhandene NAS-Ordner legen. Der gewählte Ordner ersetzt jeweils den Standard-Mount unter `/books` beziehungsweise `/audiobooks`. Beide Ordner müssen für UID/GID `1000:1000` beschreibbar sein; das Paket ändert die Besitzrechte ausgewählter externer Ordner nicht automatisch. BookOrbit kann Dateien in diesen Ordnern bearbeiten, wenn entsprechende Funktionen benutzt werden.
+
+Nach dem Update auf Paketrevision `3.6.0-1` in BookOrbit eine Bibliothek für `/audiobooks` hinzufügen. Der Ordnerdialog beginnt jetzt bei `/`, damit beide Mounts auswählbar sind. Bücher und Hörbücher werden weiterhin dauerhaft in ihren getrennten Ordnern gespeichert.
 
 Unter **Einstellungen → Umgebung** können `APP_URL` und `TZ` gesetzt werden, etwa `https://books.example.com` und `Europe/Berlin`. Für Kobo, E-Mail-Links und OIDC muss `APP_URL` die tatsächlich erreichbare Adresse sein. Ein Eintrag dort richtet keinen Tunnel ein. Auf älteren Umbrel-Versionen sind diese Werte in der Compose-Konfiguration anzupassen; lokale Änderungen können bei Store-Updates überschrieben werden.
 
