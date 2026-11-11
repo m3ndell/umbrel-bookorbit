@@ -1,8 +1,8 @@
 # BookOrbit für Umbrel
 
-Ein unabhängiger Community App Store von **m3ndell**, der ausschließlich **BookOrbit 3.7.0** enthält. Kein offizieller Store von Umbrel, Big Bear oder BookOrbit.
+Ein unabhängiger Community App Store von **m3ndell**, der ausschließlich **BookOrbit 3.8.0** enthält. Kein offizieller Store von Umbrel, Big Bear oder BookOrbit.
 
-Dieses Paket enthält **BookOrbit 3.7.0** mit getrennten Mounts für Bücher und Hörbücher.
+Dieses Paket enthält **BookOrbit 3.8.0** mit getrennten Mounts für Bücher und Hörbücher.
 
 ## Installation
 
@@ -71,7 +71,7 @@ nicht mehr verwendet.
 
 ## Version und Umfang
 
-- BookOrbit **3.7.0**, auf den geprüften Multiarch-Image-Digest festgelegt.
+- BookOrbit **3.8.0**, auf den geprüften Multiarch-Image-Digest festgelegt.
 - PostgreSQL **18 mit pgvector**, ebenfalls auf einen Multiarch-Digest festgelegt.
 - `linux/amd64` und `linux/arm64` werden von beiden Images angeboten; kein ARMv7-Paket.
 - Web-Reader, Bibliothek, OPDS und Geräteanbindungen gehören zum Hauptcontainer.

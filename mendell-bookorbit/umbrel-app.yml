@@ -3,7 +3,7 @@ id: mendell-bookorbit
 name: BookOrbit
 tagline: Deine Bibliothek für E-Books, Comics und Hörbücher
 category: media
-version: "3.7.0"
+version: "3.8.0"
 port: 8909
 description: >-
   BookOrbit verwaltet deine digitale Bibliothek mit Web-Reader, Metadaten,
@@ -28,22 +28,21 @@ repo: https://github.com/bookorbit/bookorbit
 support: https://github.com/m3ndell/umbrel-bookorbit/issues
 submitter: m3ndell
 submission: https://github.com/m3ndell/umbrel-bookorbit
-icon: https://raw.githubusercontent.com/bookorbit/bookorbit/v3.7.0/docs/images/bookorbit-icon.png
+icon: https://raw.githubusercontent.com/bookorbit/bookorbit/v3.8.0/docs/images/bookorbit-icon.png
 gallery:
-  - https://raw.githubusercontent.com/bookorbit/bookorbit/v3.7.0/docs/images/dashboard-overview.png
+  - https://raw.githubusercontent.com/bookorbit/bookorbit/v3.8.0/docs/images/dashboard-overview.png
 releaseNotes: >-
-  Achtung: BookOrbit 3.7.0 entfernt die Podcast-Funktion. Beim ersten Start
-  löscht die automatische Upstream-Datenbankmigration die Podcast-Tabellen
-  einschließlich Podcast-Lesezeichen, Warteschlangen und Hörverlauf.
-  Vor dem Update ein vollständiges Backup anlegen; ein Image-Downgrade
-  stellt diese Daten nicht wieder her.
-
-
-  Neu sind das Zusammenführen doppelter Bücher, verknüpfte E-Book- und
-  Hörbuchausgaben, die gesammelte Bearbeitung des Lesestatus und
-  rTorrent-Unterstützung. Zudem werden Metadaten, Kobo und KOReader verbessert.
+  BookOrbit 3.8.0 ergänzt API-Schlüssel für Skripte und Integrationen,
+  TorBox als Download-Client und schnellere Hörbuch-Scans. Außerdem werden
+  die Integrationsanmeldung, Metadaten und Duplikat-Suche verbessert.
   Die Mounts /books und /audiobooks bleiben erhalten.
-  Vollständige Änderungen: https://github.com/bookorbit/bookorbit/releases/tag/v3.7.0
+  Vollständige Änderungen: https://github.com/bookorbit/bookorbit/releases/tag/v3.8.0
+
+
+  Hinweis für direkte Updates von 3.6 oder älter: Seit 3.7 entfernt die
+  automatische Upstream-Datenbankmigration die Podcast-Tabellen einschließlich
+  Lesezeichen, Warteschlangen und Hörverlauf. Vor dem Update ein vollständiges
+  Backup anlegen; ein Image-Downgrade stellt diese Daten nicht wieder her.
   Die optionalen separaten TTS- und Read-Aloud-Worker sind nicht enthalten.
 dependencies: []
 storage:
