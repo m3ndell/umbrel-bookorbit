@@ -5,7 +5,7 @@ services:
       APP_PORT: 8080
 
   app:
-    image: ghcr.io/binhex/arch-sabnzbdvpn:5.1.3-1-02
+    image: ghcr.io/binhex/arch-sabnzbdvpn:latest
     restart: on-failure
     # Required by the upstream image's WireGuard setup.
     privileged: true
@@ -25,7 +25,7 @@ services:
       UMASK: "002"
       TZ: ${TZ:-Europe/Berlin}
     ports:
-      # Bind only to loopback; proxying to Prowlarr uses Umbrel's host address.
+      # Published on the host for Prowlarr. Restrict port 8118 to trusted LAN clients.
       - "8118:8118"
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
