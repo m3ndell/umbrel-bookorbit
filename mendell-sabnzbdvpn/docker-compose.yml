@@ -1,0 +1,33 @@
+services:
+  app_proxy:
+    environment:
+      APP_HOST: mendell-sabnzbdvpn_app_1
+      APP_PORT: 8080
+
+  app:
+    image: ghcr.io/binhex/arch-sabnzbdvpn:latest
+    restart: on-failure
+    # Required by the upstream image's WireGuard setup.
+    privileged: true
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    environment:
+      VPN_ENABLED: "yes"
+      VPN_PROV: custom
+      VPN_CLIENT: wireguard
+      ENABLE_PRIVOXY: "yes"
+      ENABLE_SOCKS: "no"
+      STRICT_PORT_FORWARD: "no"
+      LAN_NETWORK: ${APP_MENDELL_SABNZBDVPN_LAN_NETWORK:-192.168.1.0/24}
+      NAME_SERVERS: 1.1.1.1,1.0.0.1
+      PUID: "1000"
+      PGID: "1000"
+      UMASK: "002"
+      TZ: ${TZ:-Europe/Berlin}
+    ports:
+      # Published on the host for Prowlarr. Restrict port 8118 to trusted LAN clients.
+      - "8118:8118"
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${UMBREL_ROOT}/data/storage/downloads:/data
+      - /etc/localtime:/etc/localtime:ro
