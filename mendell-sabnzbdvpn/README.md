@@ -2,7 +2,7 @@
 
 This is a separate community package built around [binhex/arch-sabnzbdvpn](https://github.com/binhex/arch-sabnzbdvpn), with WireGuard/OpenVPN and the Privoxy HTTP proxy. It does not replace the official SABnzbd app and does not alter BookOrbit.
 
-**Unverified on a live Umbrel installation.** The upstream image's current 5.1.3-1-02 tag is used, without a digest pin. Verify image availability/architecture and deployment behavior before installing. The image is designed for Linux; confirm your host architecture is supported.
+**Unverified on a live Umbrel installation.** The upstream image's rolling `latest` tag is used, without a digest pin. An image update can therefore occur on container recreation. Verify image availability/architecture and deployment behavior before installing. The image is designed for Linux; confirm your host architecture is supported.
 
 ## Windscribe setup
 
