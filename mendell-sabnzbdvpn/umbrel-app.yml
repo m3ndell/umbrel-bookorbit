@@ -1,0 +1,38 @@
+manifestVersion: 1
+id: mendell-sabnzbdvpn
+name: SABnzbdVPN
+tagline: SABnzbd behind a VPN, with Privoxy for selected apps
+category: networking
+version: "5.1.3"
+port: 9916
+description: >-
+  SABnzbd bundled with WireGuard/OpenVPN and Privoxy (binhex container).
+  Configured for a custom Windscribe WireGuard tunnel. VPN configuration is not
+  bundled: place your Windscribe wg0.conf in the app data/config/wireguard
+  folder on Umbrel before use. Do not put credentials in GitHub.
+
+
+  Privoxy listens on port 8118 and can be configured as an HTTP indexer proxy
+  in Prowlarr. This app does not automatically configure or VPN-route Prowlarr.
+  A VPN connection and routing must be verified before downloading.
+
+
+  WARNING: The upstream WireGuard image requires privileged Docker permissions,
+  including broad access to the host. Install only if you trust this image.
+developer: binhex
+website: https://sabnzbd.org/
+repo: https://github.com/binhex/arch-sabnzbdvpn
+support: https://github.com/binhex/arch-sabnzbdvpn/issues
+submitter: m3ndell
+submission: https://github.com/m3ndell/umbrel-bookorbit
+icon: https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/sabnzbd-icon.png
+dependencies: []
+path: ""
+defaultUsername: ""
+releaseNotes: >-
+  Initial community package: binhex SABnzbdVPN 5.1.3 with WireGuard and Privoxy.
+  VPN configuration must be installed separately.
+environment:
+  - name: LAN_NETWORK
+    services: [app]
+    note: "Local LAN IPv4 subnet in CIDR format, e.g. 192.168.1.0/24. Must include the Umbrel/Docker networks used by other apps if access is required."
