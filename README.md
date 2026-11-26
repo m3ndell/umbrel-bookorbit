@@ -1,8 +1,8 @@
 # BookOrbit für Umbrel
 
-Ein unabhängiger Community App Store von **m3ndell**, der ausschließlich **BookOrbit 3.9.0** enthält. Kein offizieller Store von Umbrel, Big Bear oder BookOrbit.
+Ein unabhängiger Community App Store von **m3ndell**, der ausschließlich **BookOrbit 3.10.0** enthält. Kein offizieller Store von Umbrel, Big Bear oder BookOrbit.
 
-Dieses Paket enthält **BookOrbit 3.9.0** mit getrennten Mounts für Bücher und Hörbücher.
+Dieses Paket enthält **BookOrbit 3.10.0** mit getrennten Mounts für Bücher und Hörbücher.
 
 ## Installation
 

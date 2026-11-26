@@ -3,7 +3,7 @@ id: mendell-bookorbit
 name: BookOrbit
 tagline: Deine Bibliothek für E-Books, Comics und Hörbücher
 category: media
-version: "3.9.0"
+version: "3.10.0"
 port: 8909
 description: >-
   BookOrbit verwaltet deine digitale Bibliothek mit Web-Reader, Metadaten,
@@ -32,11 +32,11 @@ icon: https://raw.githubusercontent.com/bookorbit/bookorbit/v3.9.0/docs/images/b
 gallery:
   - https://raw.githubusercontent.com/bookorbit/bookorbit/v3.9.0/docs/images/dashboard-overview.png
 releaseNotes: >-
-  BookOrbit 3.9.0 bringt einen eigenen Library Dock für jede Bibliothek,
-  eine Übersicht der Serverkonfiguration und eine zentrale Ansicht für
-  Hintergrundaufgaben. Kobo-Synchronisierung und Hörbuch-Fortsetzung
-  wurden korrigiert.
-  Vollständige Änderungen: https://github.com/bookorbit/bookorbit/releases/tag/v3.9.0
+  BookOrbit 3.10.0 führt die Gruppierung verschiedener Buchausgaben ein,
+  einschließlich E-Books, Hörbüchern und Übersetzungen. Außerdem gibt es
+  spanische Story-Guides sowie Korrekturen für Bibliotheksscans,
+  Lesefortschritt und Metadaten.
+  Vollständige Änderungen: https://github.com/bookorbit/bookorbit/releases/tag/v3.10.0
 
 
   Hinweis für direkte Updates von 3.6 oder älter: Seit 3.7 entfernt die
